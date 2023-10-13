@@ -14,14 +14,19 @@ export const saveDB = async(db)=>{
     return db
 }
 
-export const cleanDB = async()=>{
+ const cleanDB = async()=>{
     const db = {notes:[]}
     await saveDB(db)
 }
 
-export const insertDB = async(data)=>{
+export const insertDB = async (data)=>{
     const db = await getDB()
     db.notes.push(data)
     await saveDB(db)
+    return data
 }
+
+const notes =[{id:1, content:"hello brother"}]
+
+saveDB(notes)
 

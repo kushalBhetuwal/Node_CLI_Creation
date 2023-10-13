@@ -1,4 +1,4 @@
-import {insertDB, saveDB, cleanDB, getDB} from './db.js';
+import {insertDB, saveDB, getDB} from './db.js';
 
 
 export const newNote = async(note, tags=[])=>{
@@ -28,8 +28,8 @@ export const removeNotes = async(id)=>{
     const match = data.find(item=>item.id===id)
     if(match){
        const arr = data.filter(item=>item.id!==id);
-       await saveDB({'notes':arr})
-        return match
+       await saveDB({notes:arr})
+        return arr
     }
 }
 
