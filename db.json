@@ -1,3 +1,24 @@
 {
-  "notes":[]
+  "notes": [
+    {
+      "tags": [],
+      "content": "clean my room",
+      "id": 1697497244117
+    },
+    {
+      "tags": [],
+      "content": "engineering",
+      "id": 1697497263387
+    },
+    {
+      "tags": [],
+      "content": "software",
+      "id": 1697497273827
+    },
+    {
+      "tags": [],
+      "content": "study",
+      "id": 1697497288602
+    }
+  ]
 }

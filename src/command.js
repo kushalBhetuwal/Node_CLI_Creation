@@ -1,8 +1,13 @@
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
-import { newNote, removeAllNotes, getAllNotes, findNotes, removeNotes} from "./notes.js";
-import {listNotes} from './utils.js'
-
+import {
+  newNote,
+  removeAllNotes,
+  getAllNotes,
+  findNotes,
+  removeNotes,
+} from "./notes.js";
+import { listNotes } from "./utils.js";
 
 yargs(hideBin(process.argv))
   .command(
@@ -15,10 +20,10 @@ yargs(hideBin(process.argv))
       });
     },
     async (argv) => {
-      const tags = argv.tags ? argv.tags.split(','): []
-      const notes = await newNote(argv.note, tags)
-      console.log('new note:', notes);
-    }
+      const tags = argv.tags ? argv.tags.split(",") : [];
+      const notes = await newNote(argv.note, tags);
+      console.log("new note:", notes);
+    },
   )
   .option("tags", {
     alias: "t",
@@ -30,7 +35,7 @@ yargs(hideBin(process.argv))
     "get all notes",
     () => {},
     async (argv) => {
-      const notes =await getAllNotes();
+      const notes = await getAllNotes();
       listNotes(notes);
     },
   )
@@ -45,8 +50,8 @@ yargs(hideBin(process.argv))
       });
     },
     async (argv) => {
-      const data = await findNotes(argv.filter)
-      listNotes(data)
+      const data = await findNotes(argv.filter);
+      listNotes(data);
     },
   )
   .command(
@@ -59,7 +64,7 @@ yargs(hideBin(process.argv))
       });
     },
     async (argv) => {
-      const data = await removeNotes(argv.id)
+      const data = await removeNotes(argv.id);
       console.log(data);
     },
   )
@@ -86,7 +91,7 @@ yargs(hideBin(process.argv))
     },
     async (argv) => {
       await removeAllNotes();
-      console.log("database has been reset")
+      console.log("database has been reset");
     },
   )
   .demandCommand(1)
